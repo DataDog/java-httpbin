@@ -39,6 +39,7 @@ public final class HttpBin {
 
     public HttpBin(String ip, int httpPort, int httpsPort, String keystore, HttpBinHandler handler) throws Exception {
         server = new Server();
+
         HttpConnectionFactory httpConnectionFactory =
                 new HttpConnectionFactory();
         ServerConnector connector = new ServerConnector(server,

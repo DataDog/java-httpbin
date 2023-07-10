@@ -53,8 +53,8 @@ public final class Main {
         CommandLineParser parser = new DefaultParser();
         try {
             CommandLine cmd = parser.parse(options, args);
-            int httpPort = Integer.parseInt(cmd.getOptionValue("port", "80"));
-            int httpsPort = Integer.parseInt(cmd.getOptionValue("tls-port", "443"));
+            int httpPort = Integer.parseInt(cmd.getOptionValue("port", "8080"));
+            int httpsPort = Integer.parseInt(cmd.getOptionValue("tls-port", "8443"));
             String ip = cmd.getOptionValue("ip", "0.0.0.0");
             String keystore = cmd.getOptionValue("keystore", "0.0.0.0");
 
@@ -63,7 +63,7 @@ public final class Main {
         } catch (ParseException e) {
             System.err.println("Error parsing command line options: " + e.getMessage());
             HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp("myapp", options);
+            formatter.printHelp(args[0], options);
             System.exit(1);
         }
 
